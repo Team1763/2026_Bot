@@ -89,15 +89,15 @@ public final class Constants {
     public static final boolean kRearRightTurningMotorOnBottom = true;
 
     // SPARK MAX CAN IDs
-    public static final int kFrontLeftDrivingCanId = 15;
-    public static final int kRearLeftDrivingCanId = 13;
-    public static final int kFrontRightDrivingCanId = 11;
-    public static final int kRearRightDrivingCanId = 9;
+    public static final int kFrontLeftDrivingCanId = 2;
+    public static final int kRearLeftDrivingCanId = 9;
+    public static final int kFrontRightDrivingCanId = 4;
+    public static final int kRearRightDrivingCanId = 8;
 
-    public static final int kFrontLeftTurningCanId = 14;
-    public static final int kRearLeftTurningCanId = 12;
-    public static final int kFrontRightTurningCanId = 10;
-    public static final int kRearRightTurningCanId = 8;
+    public static final int kFrontLeftTurningCanId = 3;
+    public static final int kRearLeftTurningCanId = 5;
+    public static final int kFrontRightTurningCanId = 6;
+    public static final int kRearRightTurningCanId = 10;
 
     public static final boolean kGyroReversed = false;
   }
