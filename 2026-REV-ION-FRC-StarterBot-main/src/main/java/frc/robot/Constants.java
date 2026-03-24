@@ -21,7 +21,7 @@ public final class Constants {
 
   public static final class IntakeSubsystemConstants {
     public static final int kIntakeMotorCanId = 2;    // SPARK Flex CAN ID
-    public static final int kConveyorMotorCanId = 4;  // SPARK Flex CAN ID
+    public static final int kConveyorMotorCanId = 44;  // SPARK Flex CAN ID
 
     public static final class IntakeSetpoints {
       public static final double kIntake = 0.6;
@@ -35,8 +35,8 @@ public final class Constants {
   }
 
   public static final class ShooterSubsystemConstants {
-    public static final int kFeederMotorCanId = 5;    // SPARK Flex CAN ID
-    public static final int kFlywheelMotorCanId = 6;  // SPARK Flex CAN ID (Right)
+    public static final int kFeederMotorCanId = 55;    // SPARK Flex CAN ID
+    public static final int kFlywheelMotorCanId = 60;  // SPARK Flex CAN ID (Right)
     public static final int kFlywheelFollowerMotorCanId = 7;  // SPARK Flex CAN ID (Left)
 
     public static final class FeederSetpoints {
@@ -57,9 +57,9 @@ public final class Constants {
 
     // Chassis configuration
     // Distance between centers of right and left wheels on robot
-    public static final double kTrackWidth = Units.inchesToMeters(22.5);
+    public static final double kTrackWidth = Units.inchesToMeters(23.5);
     // Distance between front and back wheels on robot
-    public static final double kWheelBase = Units.inchesToMeters(22.5);
+    public static final double kWheelBase = Units.inchesToMeters(23.5);
 
     public static final SwerveDriveKinematics kDriveKinematics =
         new SwerveDriveKinematics(
@@ -69,7 +69,7 @@ public final class Constants {
             new Translation2d(-kWheelBase / 2, -kTrackWidth / 2));
 
     // Angular offsets of the modules relative to the chassis in radians
-    private static final double kEasySwerveAngularOffsetCompensation = Math.PI / 4;
+    private static final double kEasySwerveAngularOffsetCompensation = 0;
     public static final double kFrontLeftChassisAngularOffset = (-Math.PI / 2) + kEasySwerveAngularOffsetCompensation;
     public static final double kFrontRightChassisAngularOffset = 0 + kEasySwerveAngularOffsetCompensation;
     public static final double kBackLeftChassisAngularOffset = Math.PI + kEasySwerveAngularOffsetCompensation;
@@ -78,20 +78,20 @@ public final class Constants {
     // The EasySwerve module allows installation of the motors either on top or bottom of the module.
     // These constants configure the location of the motors. The default configuration is with both
     // motors on the bottom of the module.
-    public static final boolean kFrontLeftDrivingMotorOnBottom = true;
-    public static final boolean kRearLeftDrivingMotorOnBottom = true;
-    public static final boolean kFrontRightDrivingMotorOnBottom = true;
-    public static final boolean kRearRightDrivingMotorOnBottom = true;
+    public static final boolean kFrontLeftDrivingMotorOnBottom = false;
+    public static final boolean kRearLeftDrivingMotorOnBottom = false;
+    public static final boolean kFrontRightDrivingMotorOnBottom = false;
+    public static final boolean kRearRightDrivingMotorOnBottom = false;
 
-    public static final boolean kFrontLeftTurningMotorOnBottom = true;
-    public static final boolean kRearLeftTurningMotorOnBottom = true;
-    public static final boolean kFrontRightTurningMotorOnBottom = true;
-    public static final boolean kRearRightTurningMotorOnBottom = true;
+    public static final boolean kFrontLeftTurningMotorOnBottom = false;
+    public static final boolean kRearLeftTurningMotorOnBottom = false;
+    public static final boolean kFrontRightTurningMotorOnBottom = false;
+    public static final boolean kRearRightTurningMotorOnBottom = false;
 
     // SPARK MAX CAN IDs
-    public static final int kFrontLeftDrivingCanId = 2;
+    public static final int kFrontLeftDrivingCanId = 32;
     public static final int kRearLeftDrivingCanId = 9;
-    public static final int kFrontRightDrivingCanId = 4;
+    public static final int kFrontRightDrivingCanId = 34;
     public static final int kRearRightDrivingCanId = 8;
 
     public static final int kFrontLeftTurningCanId = 3;

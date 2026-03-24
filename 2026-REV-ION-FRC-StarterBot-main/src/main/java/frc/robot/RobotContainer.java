@@ -77,8 +77,8 @@ public class RobotContainer {
                     true),
             m_robotDrive));
 
-    //SmartDashboard.putData(m_intake);
-    //SmartDashboard.putData(m_shooter);
+    SmartDashboard.putData(m_intake);
+    SmartDashboard.putData(m_shooter);
 
     SmartDashboard.putNumber("Bat Voltage", RobotController.getBatteryVoltage());
 
@@ -133,7 +133,7 @@ public class RobotContainer {
 
     // Shoot
     new JoystickButton(m_driverController, 1) // button 1 should be trigger
-        .whileTrue(new RunCommand(() -> m_shooter.runShooterCommand(), m_robotDrive));
+        .whileTrue(new RunCommand(() -> m_shooter.runShooterCommand()));
 
     // Run intake
     new JoystickButton(m_driverController, 2) // 2 should be top of joystick

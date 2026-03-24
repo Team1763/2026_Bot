@@ -9,9 +9,11 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 
 import com.revrobotics.spark.SparkClosedLoopController;
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.ControlType;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkFlexConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.PersistMode;
@@ -21,7 +23,7 @@ import com.revrobotics.ResetMode;
 import frc.robot.Configs;
 
 public class EasySwerveModule {
-  private final SparkMax m_drivingSpark;
+  private final SparkFlex m_drivingSpark;
   private final SparkMax m_turningSpark;
 
   private final RelativeEncoder m_drivingEncoder;
@@ -41,7 +43,7 @@ public class EasySwerveModule {
    */
   public EasySwerveModule(int drivingCANId, int turningCANId, double chassisAngularOffset,
       boolean drivingMotorOnBottom, boolean turningMotorOnBottom) {
-    m_drivingSpark = new SparkMax(drivingCANId, MotorType.kBrushless);
+    m_drivingSpark = new SparkFlex(drivingCANId, MotorType.kBrushless);
     m_turningSpark = new SparkMax(turningCANId, MotorType.kBrushless);
 
     m_drivingEncoder = m_drivingSpark.getEncoder();
@@ -53,12 +55,12 @@ public class EasySwerveModule {
     // Apply the respective configurations to the SPARKS. Reset parameters before
     // applying the configuration to bring the SPARK to a known good state. Persist
     // the settings to the SPARK to avoid losing them on a power cycle.
-    SparkMaxConfig drivingConfig = Configs.EasySwerveModule.drivingConfig;
+    SparkFlexConfig drivingConfig = Configs.EasySwerveModule.drivingConfig;
     drivingConfig.inverted(drivingMotorOnBottom);
     m_drivingSpark.configure(drivingConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     SparkMaxConfig turningConfig = Configs.EasySwerveModule.turningConfig;
-    turningConfig.inverted(!turningMotorOnBottom);
+    turningConfig.inverted(turningMotorOnBottom);
     m_turningSpark.configure(turningConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     m_chassisAngularOffset = chassisAngularOffset;
